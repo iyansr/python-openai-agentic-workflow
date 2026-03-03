@@ -8,7 +8,7 @@ app = FastAPI()
 
 
 @app.post("/content")
-def do_research(body: ContentInput):
+def create_content(body: ContentInput):
     create_content_task.delay(body.topic)
 
     return {"message": "Processing!"}
